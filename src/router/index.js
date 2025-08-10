@@ -9,6 +9,7 @@ import Bai5 from '../views/bai5.vue'
 import Bai6 from '../views/bai6.vue'
 import Bai7 from '../views/bai7.vue'
 import Bai13 from '../views/bai13.vue'
+import Bai9 from '../views/bai9.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -55,7 +56,12 @@ export default new Router({
       path:'/grid1',
       name:'bai13',
       component:Bai13
-    }
+    },
+    {
+      path:'/bai9',
+      name:'bai9',
+      component:Bai9
+    },
 
   ]
 })

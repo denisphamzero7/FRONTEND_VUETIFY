@@ -7,54 +7,17 @@
       <v-btn text class="white--text"  @click="snackbar=false"> Close</v-btn>
     </v-snackbar>
     <v-app-bar app  class="grey lighten-4">
-      <v-app-bar-nav-icon @click="drawer = !drawer" class="grey--text"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer=!drawer" class="grey--text"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase grey--text">
-        <span class="font-weight-bold">TODO</span><span class="font-weight-light">NINJA</span>
+        <span class="font-weight-bold">TODO</span><span class="font-weight-light">danatec</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn 
-            text 
-            class="grey--text text-none font-weight-medium mr-2" 
-            v-bind="attrs" 
-            v-on="on"
-          >
-            <v-icon left class="mr-1">mdi-menu-down</v-icon>
-            MENU
-          </v-btn>
-        </template>
-
-        <v-list dense>
-          <v-list-item
-            v-for="item in menuItems"
-            :key="item.text"
-            :to="item.path"
-            @click="closeMenu"
-            class="py-2"
-          >
-            <v-list-item-icon class="mr-2">
-              <v-icon small>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title class="text-body-2">{{ item.text }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-      
-      <v-btn text color="grey" @click="signOut">
-        <span>SIGN OUT</span>
-        <v-icon right>mdi-arrow-right</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer 
       v-model="drawer" 
       class="purple darken-2"
       app
-      permanent
       width="280"
     >
       <v-layout column align-center class="pt-4">
@@ -113,6 +76,7 @@ export default {
         { icon: "mdi-person", text: "bai6", path: "/bai6" },
         { icon: "mdi-person", text: "bai7", path: "/bai7" },
         { icon: "mdi-person", text: "bai13", path: "/grid1" },
+        { icon: "mdi-person", text: "bai9", path: "/bai9" },
       ],
       menuItems: [
         { icon: 'mdi-view-dashboard', text: 'Dashboard', path: '/' },
