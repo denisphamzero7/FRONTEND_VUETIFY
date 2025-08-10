@@ -1,25 +1,22 @@
 <template>
-  <v-app>
-     <v-app-bar app>
-      <v-btn to="/" text>Home</v-btn>
-      <v-btn to="/about" text>About</v-btn>
-    </v-app-bar>
-
+  <v-app class="grey lighten-4">
+    <Navbar/>
     <v-main>
-
       <router-view/>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import Navbar from './views/Navbar.vue';
+
 
 
 export default {
   name: 'App',
 
   components: {
-   
+   Navbar
   },
 
   data: () => ({
