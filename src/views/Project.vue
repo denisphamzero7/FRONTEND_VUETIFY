@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import db from '../fb'
 export default {
   name: 'Project',
   data() {
@@ -41,6 +42,19 @@ export default {
         return project.status !== 'complete'
       })
     }
+  },
+  created(){
+    db.collection('projects').onSnapshot(res=>{
+      const  changes =res.docChanges()
+      changes.forEach(change=>{
+        if(change.type ==='added'){
+          this.projects.push({
+            ...change.doc.data(),
+            id:change.doc.id
+          })
+        }
+      })
+    })
   }
 }
 </script>

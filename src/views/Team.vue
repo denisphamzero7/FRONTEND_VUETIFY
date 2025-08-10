@@ -8,7 +8,7 @@
           <v-card flat class="text-center ma-3 team-card">
             <v-responsive class="pt-4">
               <v-avatar size="100" class="mb-3">
-                <v-img :src="person.avatar" :alt="person.name"></v-img>
+                <img :src="person.avatar" :alt="person.name">
               </v-avatar>
             </v-responsive>
             <v-card-text>
@@ -69,6 +69,13 @@ export default {
 
 .v-avatar {
   border: 3px solid #f5f5f5;
+}
+
+.v-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .v-card-text {

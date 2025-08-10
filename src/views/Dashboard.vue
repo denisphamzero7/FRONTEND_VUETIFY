@@ -3,7 +3,7 @@
     <h1 class="subheading grey--text">Dashboard</h1>
 
     <v-container class="my-5">
-      <v-layout row justify-start class="mb-3">
+      <v-layout row justify-start class="mb-3" wrap>
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <v-btn small flat color="grey" @click="sortBy('title')" v-bind="attrs" v-on="on">
@@ -72,39 +72,14 @@
 </template>
 
 <script>
+import db from '../fb'
+
 export default {
   name: 'Dashboard',
   data() {
     return {
       projects: [
-        { 
-          title: 'Tạo web mới', 
-          person: 'The danatec', 
-          due: '1st Jan 2045', 
-          status: 'ongoing', 
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'
-        },
-        { 
-          title: 'Code ở đây', 
-          person: 'đào', 
-          due: '10th Jan 2059', 
-          status: 'hoàn-thành', 
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'
-        },
-        { 
-          title: 'Thiết kế', 
-          person: 'hoa', 
-          due: '20th Dec 2038', 
-          status: 'complete', 
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'
-        },
-        { 
-          title: 'Create a community forum', 
-          person: 'thương', 
-          due: '20th Oct 2018', 
-          status: 'overdue', 
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'
-        },
+       
       ]
     }
   },
@@ -133,6 +108,19 @@ export default {
           return 'mdi-information'
       }
     }
+  },
+  created(){
+    db.collection('projects').onSnapshot(res=>{
+      const  changes =res.docChanges()
+      changes.forEach(change=>{
+        if(change.type ==='added'){
+          this.projects.push({
+            ...change.doc.data(),
+            id:change.doc.id
+          })
+        }
+      })
+    })
   }
 }
 </script>
