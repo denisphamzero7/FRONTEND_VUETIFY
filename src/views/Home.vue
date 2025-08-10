@@ -13,6 +13,10 @@
     <v-btn><v-icon left>mdi-email-outline</v-icon><span>email outline</span></v-btn>
     <v-btn><v-icon left>mdi-account</v-icon><span>account icon</span></v-btn>
     <v-btn><v-icon left>mdi-heart</v-icon><span>heart icon</span></v-btn>
+
+      <v-btn class="caption"><v-icon left>mdi-email-outline</v-icon><span>email outline</span></v-btn>
+    <v-btn class= "pink light-4 red--text text-darken-4" > <v-icon left>mdi-account</v-icon><span>account icon</span></v-btn>
+    <v-btn class="subheading"><v-icon left>mdi-heart</v-icon><span>heart icon</span></v-btn>
     
     <!-- Test without left prop -->
     <v-btn><v-icon>mdi-star</v-icon><span>star icon</span></v-btn>

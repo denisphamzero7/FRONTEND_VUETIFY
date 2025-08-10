@@ -1,10 +1,12 @@
 <template>
-  <v-app class="grey lighten-4">
+  <v-app>
     <Navbar />
 
-    <v-content class="mx-4 mb-4">
-      <router-view></router-view>
-    </v-content>
+    <v-main>
+      <v-container fluid class="pa-4">
+        <router-view></router-view>
+      </v-container>
+    </v-main>
     
   </v-app>
 </template>
@@ -22,3 +24,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.v-application {
+  background-color: #f5f5f5 !important;
+}
+</style>
